@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<h1>A Todo List</h1>
+
+<div id="app">
+	<form v-on:submit="submitTodo($event)">
+		<input type="text" v-model="newTodo">
+		<input type="submit">
+	</form>
+	<div v-for="todo in allTodos" v-on:click="strike(todo)">
+		<button v-on:click="removeTodo(todo)">delete</button>
+		<div v-if="todo.done" v-bind:style="doneStyle">
+			{{todo.text}}
+		</div>
+		<div v-else>
+			{{todo.text}}
+		</div>
+	</div>
+
+
+</div>
+<script
+  src="http://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="/main.js"></script>
+</body>
+</html>
